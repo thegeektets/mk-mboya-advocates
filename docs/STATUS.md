@@ -6,10 +6,12 @@ Living snapshot. Update after each deploy.
 | --- | --- |
 | Local path | `C:\Users\Hp\Projects\mk-mboya-advocates` |
 | GitHub | https://github.com/thegeektets/mk-mboya-advocates |
-| Visibility | Public (matches `mycfong-payroll-proposal`) |
-| Vercel project | `mk-mboya-advocates` (pending first deploy) |
-| Production URL | pending |
-| Last deploy | not yet |
+| Visibility | Public |
+| Vercel project | `mk-mboya-advocates` (team `thegeektets`) |
+| Dashboard | https://vercel.com/thegeektets/mk-mboya-advocates |
+| Production URL | https://mk-mboya-advocates.vercel.app |
+| Git production alias | https://mk-mboya-advocates-git-main-griffin-mutetis-projects.vercel.app |
+| Last deploy | production `dpl_6WXZo3K7DDrvJL13rLmNX8C5yLVu` (READY) |
 | Live logo | Refined lockup (variant C) on dark slate; leaf recolored to `#00E2BD` |
 
 ## Blockers

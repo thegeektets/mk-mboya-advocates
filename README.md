@@ -29,7 +29,8 @@ npm start
 
 - Local path: `C:\Users\Hp\Projects\mk-mboya-advocates`
 - GitHub: https://github.com/thegeektets/mk-mboya-advocates
-- Vercel: see `docs/STATUS.md` after deploy
+- Vercel project: https://vercel.com/thegeektets/mk-mboya-advocates
+- Live: https://mk-mboya-advocates.vercel.app
 
 ## Pages
 
