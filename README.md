@@ -4,6 +4,24 @@ Public website for **MK Mboya Advocates LLP** — a founder-led Kenyan boutique 
 
 Copy is taken from the firm outline of 17 August 2026. Visual language follows the MyCFO NG / Leemify proposal site (dark slate, turquoise accent, large type, card rhythm) — not a generic white-navy law template.
 
+## Links
+
+| | |
+| --- | --- |
+| **Live site** | https://mk-mboya-advocates.vercel.app |
+| **GitHub** | https://github.com/thegeektets/mk-mboya-advocates |
+| **Vercel dashboard** | https://vercel.com/griffin-mutetis-projects/mk-mboya-advocates |
+| **Logo lab** | https://mk-mboya-advocates.vercel.app/logo-lab |
+| **Done / remaining** | [`docs/TODO.md`](docs/TODO.md) |
+
+## Status at a glance
+
+**Shipped:** brochure site, MyCFO-style UI, outline copy, logo variants, GitHub + Vercel production.
+
+**Waiting on the firm:** email, phone, office address, founder name/portrait/CV, logo sign-off, custom domain, Insights articles.
+
+Full checklist: [`docs/TODO.md`](docs/TODO.md).
+
 ## Stack
 
 - Next.js 16 (App Router) + TypeScript
@@ -24,13 +42,6 @@ Open [http://localhost:3000](http://localhost:3000).
 npm run build
 npm start
 ```
-
-## Links
-
-- Local path: `C:\Users\Hp\Projects\mk-mboya-advocates`
-- GitHub: https://github.com/thegeektets/mk-mboya-advocates
-- Vercel project: https://vercel.com/thegeektets/mk-mboya-advocates
-- Live: https://mk-mboya-advocates.vercel.app
 
 ## Pages
 
@@ -58,5 +69,6 @@ See `docs/BRAND.md`.
 
 ## Tracking
 
-- `docs/TODO.md` — remaining work
-- `docs/STATUS.md` — repo, deploy, blockers
+- [`docs/TODO.md`](docs/TODO.md) — done vs remaining
+- [`docs/STATUS.md`](docs/STATUS.md) — repo, deploy, blockers
+- [`docs/BRAND.md`](docs/BRAND.md) — logo treatments
