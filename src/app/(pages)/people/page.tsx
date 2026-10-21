@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BookOpen, Leaf } from "lucide-react";
+import { ArrowRight, BookOpen, Leaf } from "lucide-react";
 import { MkIcon } from "@/components/MkIcon";
 import { PageIntro } from "@/components/PageIntro";
 import { founder, firm } from "@/content/site";
@@ -48,25 +48,18 @@ export default function PeoplePage() {
           {founder.credentials.map((c, i) => {
             const Icon = credentialVisuals[i]?.Icon;
             return (
-              <li key={c} className="flex items-start gap-3 text-sm text-ink">
+              <li key={c} className="flex items-center gap-3 text-sm text-ink">
                 {Icon ? <MkIcon icon={Icon} size="xs" tone="aqua" /> : null}
-                <span className="pt-1.5">{c}</span>
+                <span>{c}</span>
               </li>
             );
           })}
         </ul>
-        <p className="mt-6 text-xs leading-relaxed text-stone">{founder.note}</p>
       </article>
 
-      <p className="mt-10 max-w-xl text-sm text-stone">
-        Of-counsel and network biographies will be added as they are confirmed.
-        Portrait and a full CV narrative are not in the August 2026 outline.
-      </p>
-      <Link
-        href="/contact"
-        className="mt-6 inline-flex text-sm font-semibold text-canopy hover:text-turquoise"
-      >
-        Contact chambers →
+      <Link href="/contact" className="btn-primary mt-8">
+        Contact chambers
+        <ArrowRight size={16} />
       </Link>
     </div>
   );

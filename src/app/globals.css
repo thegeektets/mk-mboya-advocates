@@ -76,11 +76,14 @@ body {
 }
 
 @keyframes hero-drift {
-  from {
-    transform: scale(1.06) translate3d(0, 8px, 0);
+  0% {
+    transform: scale(1.06) translate3d(0, 0, 0);
   }
-  to {
-    transform: scale(1) translate3d(0, 0, 0);
+  50% {
+    transform: scale(1.14) translate3d(-2.2%, -1.4%, 0);
+  }
+  100% {
+    transform: scale(1.06) translate3d(0, 0, 0);
   }
 }
 
@@ -105,7 +108,7 @@ body {
   }
 }
 
-@keyframes spin-slow {
+@keyframes orbit-spin {
   from {
     transform: rotate(0deg);
   }
@@ -114,8 +117,27 @@ body {
   }
 }
 
+@keyframes orbit-counter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes icon-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+}
+
 .hero-media {
-  animation: hero-drift 18s ease-out forwards;
+  animation: hero-drift 36s ease-in-out infinite;
 }
 
 .rise-in {
@@ -134,12 +156,107 @@ body {
   animation: icon-float 5.6s ease-in-out infinite;
 }
 
-.spin-slow {
-  animation: spin-slow 72s linear infinite;
+.orbit-spin {
+  animation: orbit-spin 42s linear infinite;
+}
+
+.orbit-counter {
+  animation: orbit-counter 42s linear infinite;
+}
+
+.icon-pulse {
+  animation: icon-pulse 5.2s ease-in-out infinite;
 }
 
 .icon-glow {
   filter: drop-shadow(0 0 28px rgba(0, 226, 189, 0.55));
+}
+
+@keyframes mark-sun-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes mark-sun-pulse {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes mark-leaf-sway {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes mark-dash {
+  to {
+    stroke-dashoffset: -70;
+  }
+}
+
+@keyframes mark-dot {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes mark-window {
+  0%,
+  100% {
+    opacity: 0.22;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.mark-sun {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mark-sun-spin 36s linear infinite;
+}
+
+.mark-sun-glow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mark-sun-pulse 7s ease-in-out infinite;
+}
+
+.mark-leaf {
+  transform-box: fill-box;
+  transform-origin: 40% 90%;
+  animation: mark-leaf-sway 8s ease-in-out infinite;
+}
+
+.mark-path {
+  animation: mark-dash 16s linear infinite;
+}
+
+.mark-dot {
+  animation: mark-dot 3.4s ease-in-out infinite;
+}
+
+.mark-window {
+  animation: mark-window 4.2s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -148,27 +265,154 @@ body {
   .rise-in-delay,
   .rise-in-late,
   .icon-float,
-  .spin-slow {
+  .orbit-spin,
+  .orbit-counter,
+  .icon-pulse,
+  .mark-sun,
+  .mark-sun-glow,
+  .mark-leaf,
+  .mark-path,
+  .mark-dot,
+  .mark-window {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
+
+  .btn-primary,
+  .btn-ghost,
+  .btn-primary svg,
+  .btn-ghost svg {
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  .btn-primary:hover,
+  .btn-ghost:hover,
+  a:hover .btn-primary {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .btn-primary::after,
+  .btn-ghost::after {
+    display: none !important;
+  }
+}
+
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  max-width: 100%;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    background 0.22s ease,
+    color 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.btn-primary::after,
+.btn-ghost::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.55s ease;
+}
+
+.btn-primary:hover::after,
+.btn-primary:focus-visible::after,
+a:hover .btn-primary::after,
+.btn-ghost:hover::after,
+.btn-ghost:focus-visible::after {
+  transform: translateX(130%);
+}
+
+.btn-primary svg,
+.btn-ghost svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.22s ease;
+}
+
+.btn-primary:hover svg,
+.btn-primary:focus-visible svg,
+a:hover .btn-primary svg,
+.btn-ghost:hover svg,
+.btn-ghost:focus-visible svg {
+  transform: translateX(4px);
 }
 
 .btn-primary {
   background: var(--turquoise);
   color: var(--black);
-  font-weight: 600;
-  border-radius: 0.5rem;
-  transition: background 0.15s ease, transform 0.15s ease;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus-visible,
+a:hover .btn-primary {
   background: #2aebc8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 226, 189, 0.38);
 }
 
-.btn-primary:active {
-  transform: translateY(1px);
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--white);
+  background: transparent;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--turquoise);
+  color: var(--turquoise);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 226, 189, 0.22);
+}
+
+.btn-primary:active,
+.btn-ghost:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-primary:disabled,
+.btn-primary[disabled] {
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn-primary:disabled:hover,
+.btn-primary[disabled]:hover {
+  background: var(--turquoise);
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-primary:disabled::after,
+.btn-primary[disabled]::after {
+  display: none;
 }
 
 .llpline {

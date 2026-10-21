@@ -22,36 +22,36 @@ export function SiteFooter() {
             {firm.email}
           </p>
         </div>
-        <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm sm:gap-x-6">
+        <nav className="flex flex-col gap-1 text-sm sm:items-end">
           {nav
             .filter((l) => l.href !== "/")
             .map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="inline-flex min-h-11 items-center text-white/70 hover:text-brass"
+                className="inline-flex min-h-10 items-center text-white/70 hover:text-brass"
               >
                 {link.label}
               </Link>
             ))}
           <Link
             href="/disclaimer"
-            className="inline-flex min-h-11 items-center text-white/70 hover:text-brass"
+            className="inline-flex min-h-10 items-center text-white/70 hover:text-brass"
           >
             Disclaimer
           </Link>
           <Link
             href="/privacy"
-            className="inline-flex min-h-11 items-center text-white/70 hover:text-brass"
+            className="inline-flex min-h-10 items-center text-white/70 hover:text-brass"
           >
             Privacy
           </Link>
-        </div>
+        </nav>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] text-xs text-white/50 sm:flex-row sm:justify-between sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p>
-            {firm.name} · Nairobi · Proposed domains {firm.domains.join(" · ")}
+            {firm.name} · {firm.location}
           </p>
           <p>
             © {new Date().getFullYear()} {firm.name}. All rights reserved.

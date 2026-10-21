@@ -18,9 +18,9 @@ Copy is taken from the firm outline of 17 August 2026. Visual language follows t
 
 **Shipped:** brochure site, MyCFO-style UI, outline copy, logo variants, GitHub + Vercel production.
 
-**Waiting on the firm:** email, phone, office address, founder name/portrait/CV, logo sign-off, custom domain, Insights articles.
+**Waiting on the firm:** see [`docs/CLIENT-REVIEW.md`](docs/CLIENT-REVIEW.md) — the list to send with the preview.
 
-Full checklist: [`docs/TODO.md`](docs/TODO.md).
+Full internal checklist: [`docs/TODO.md`](docs/TODO.md).
 
 ## Stack
 
@@ -51,8 +51,8 @@ npm start
 | `/about` | Firm story and values |
 | `/expertise` | Practice areas |
 | `/expertise/[slug]` | Each practice area |
-| `/people` | Founder-led boutique (credentials from outline only) |
-| `/insights` | Outlet placeholders — no invented article titles |
+| `/people` | Founder-led boutique |
+| `/insights` | Writing and commentary |
 | `/contact` | Form → mailto draft |
 | `/privacy` `/disclaimer` | Short legal stubs |
 | `/logo-lab` | Logo/colour experiments (noindex) |

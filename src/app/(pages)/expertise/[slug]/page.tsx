@@ -69,7 +69,7 @@ export default async function PracticePage({
       </ul>
       <Link
         href="/contact"
-        className="btn-primary mt-10 inline-flex min-h-11 items-center gap-2 px-5 py-3 text-sm"
+        className="btn-primary mt-10"
       >
         Discuss this matter
         <ArrowRight size={16} />

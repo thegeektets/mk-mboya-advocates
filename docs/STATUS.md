@@ -18,4 +18,4 @@ Living snapshot. Update after each deploy.
 ## Blockers
 
 - None for a first public brochure.
-- Contact details beyond Nairobi are not in the Word outline — form uses proposed `chambers@mkmboya.law`.
+- Contact details beyond Nairobi are not in the Word outline — form uses proposed `chambers@mkmboya.law`. Client-facing request list: [`CLIENT-REVIEW.md`](CLIENT-REVIEW.md).

@@ -10,6 +10,7 @@ Last updated: 21 Oct 2026. Copy stays faithful to the 17 Aug 2026 outline — do
 | GitHub repo | https://github.com/thegeektets/mk-mboya-advocates |
 | Vercel dashboard | https://vercel.com/griffin-mutetis-projects/mk-mboya-advocates |
 | Logo experiments | https://mk-mboya-advocates.vercel.app/logo-lab |
+| Client review list | [`docs/CLIENT-REVIEW.md`](CLIENT-REVIEW.md) |
 | Local | `C:\Users\Hp\Projects\mk-mboya-advocates` — `npm run dev` |
 
 ---
@@ -51,15 +52,18 @@ Last updated: 21 Oct 2026. Copy stays faithful to the 17 Aug 2026 outline — do
 
 ## Not done (needs the firm)
 
-These are blocked on information that is **not in the Word outline**.
+Sendable list for the client: [`docs/CLIENT-REVIEW.md`](CLIENT-REVIEW.md).
 
-- [ ] Confirm chambers email (site currently uses proposed `chambers@mkmboya.law`)
-- [ ] Phone number
+These are blocked on information that is **not in the Word outline**. Do not invent them on the public site.
+
+- [ ] Confirm chambers email (site currently uses proposed `chambers@mkmboya.law` — was labelled “confirm before printing”)
+- [ ] Phone number (not in the August 2026 outline)
 - [ ] Physical address or P.O. Box (outline: “once secured”)
-- [ ] Founding partner given name, portrait, and CV narrative (outline: “lift from CV”)
-- [ ] Client sign-off on live logo (refined teal vs original navy/green)
+- [ ] Founding partner given name, portrait, and CV narrative (outline: “lift from CV”; given name and portrait are not in the brief)
+- [ ] Client sign-off on live logo (client lockup now used site-wide)
 - [ ] Custom domain: `mkmboya.ke` / `mkmboya.africa` / `mkmboya.law` + attach to Vercel
 - [ ] Of-counsel names/bios when the network is named
+- [ ] Insights article titles, links, and republication clearance (outlets named only)
 
 ## Not done (content / product)
 

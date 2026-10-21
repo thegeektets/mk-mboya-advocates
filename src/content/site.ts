@@ -6,7 +6,6 @@ export const firm = {
   region: "Kenya and East Africa",
   domains: ["mkmboya.ke", "mkmboya.africa", "mkmboya.law"],
   email: "chambers@mkmboya.law",
-  emailNote: "Proposed chambers address — confirm with the firm before printing.",
 } as const;
 
 export const heroEyebrow = "Kenya · Corporate & Climate Law";
@@ -27,11 +26,31 @@ export const whoWeAre = {
 };
 
 export const values = [
-  "Responsiveness",
-  "Rigour",
-  "Commercial Understanding",
-  "Local Knowledge",
-  "Global Perspective",
+  {
+    label: "Responsiveness",
+    blurb:
+      "Practical, responsive counsel. We listen carefully and stay close to the matter, so clients get trusted answers they can use.",
+  },
+  {
+    label: "Rigour",
+    blurb:
+      "Counsel grounded in legal rigour — high-quality advice that holds up in complex transactions, investments and regulatory environments.",
+  },
+  {
+    label: "Commercial Understanding",
+    blurb:
+      "Commercially focused advice. We think strategically and deliver solutions that work for the client’s objectives.",
+  },
+  {
+    label: "Local Knowledge",
+    blurb:
+      "Deep local knowledge of Kenya and East Africa, helping clients navigate the environments in which they operate.",
+  },
+  {
+    label: "Global Perspective",
+    blurb:
+      "We work with businesses, investors and international counsel across the region and beyond, including as Kenyan local counsel on cross-border matters.",
+  },
 ] as const;
 
 export type PracticeArea = {
@@ -132,13 +151,12 @@ export const founder = {
     "Katiba Institute litigation credentials",
     "Legal 500 recognition",
   ],
-  note: "Full biography to be lifted from the founding partner’s CV. Credentials above are taken from the firm outline of 17 August 2026; given name and portrait are not in that brief and are not invented here.",
 };
 
 export const insightsSources = [
   {
     outlet: "Mail & Guardian",
-    blurb: "Published commentary by the founding partner — archive to be republished here.",
+    blurb: "Published commentary by the founding partner.",
   },
   {
     outlet: "Business Daily Africa",

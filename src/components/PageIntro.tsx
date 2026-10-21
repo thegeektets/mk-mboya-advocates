@@ -7,15 +7,19 @@ export function PageIntro({
   icon,
   title,
   children,
+  hideIconOnMobile = false,
 }: {
   kicker: string;
   icon: LucideIcon;
   title: string;
   children?: ReactNode;
+  hideIconOnMobile?: boolean;
 }) {
   return (
-    <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
-      <MkIcon icon={icon} size="lg" tone="aqua" />
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
+      <span className={hideIconOnMobile ? "hidden sm:contents" : undefined}>
+        <MkIcon icon={icon} size="md" tone="aqua" />
+      </span>
       <div>
         <p className="text-xs font-medium uppercase tracking-[0.16em] text-turquoise sm:text-sm sm:tracking-[0.2em]">
           {kicker}

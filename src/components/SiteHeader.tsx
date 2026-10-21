@@ -57,7 +57,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
               </Link>
             );
           })}
-          <Link href="/contact" className="btn-primary ml-2 px-3 py-2 text-sm">
+          <Link href="/contact" className="btn-primary ml-2">
             Instruct us
           </Link>
         </nav>
@@ -102,7 +102,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="btn-primary mt-1 min-h-11 px-3 py-3 text-center text-sm"
+              className="btn-primary mt-1 w-full"
             >
               Instruct us
             </Link>

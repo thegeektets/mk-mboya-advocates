@@ -111,7 +111,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="btn-primary inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-sm disabled:opacity-60"
+        className="btn-primary w-full min-h-11 px-5 py-3 text-sm disabled:opacity-60"
       >
         <Send size={16} aria-hidden />
         {status === "sending" ? "Sending…" : "Send message"}

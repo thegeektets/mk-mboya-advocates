@@ -14,12 +14,13 @@ export default function ExpertisePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
       <PageIntro kicker="What we do" icon={Layers} title="Areas of expertise">
-        High-quality, personalised counsel. Each area leads with the client’s
-        problem, then the work we actually do.
+        High-quality, personalised counsel across corporate and investment
+        transactions, due diligence, local counsel support, renewable energy,
+        and climate and energy advisory.
       </PageIntro>
-      <ul className="mt-12 grid gap-6 lg:grid-cols-2">
+      <ul className="mt-12 grid items-stretch gap-6 lg:grid-cols-2">
         {practiceAreas.map((area) => (
-          <li key={area.slug}>
+          <li key={area.slug} className="h-full">
             <PracticeCard area={area} />
           </li>
         ))}

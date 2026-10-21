@@ -21,6 +21,7 @@ import {
   Sun,
   Wind,
 } from "lucide-react";
+import { values } from "@/content/site";
 
 export type PracticeSlug =
   | "corporate-ma-investment"
@@ -51,13 +52,18 @@ export function practiceVisual(slug: string) {
   );
 }
 
-export const valueVisuals = [
-  { label: "Responsiveness", Icon: Radio },
-  { label: "Rigour", Icon: Scale },
-  { label: "Commercial Understanding", Icon: Compass },
-  { label: "Local Knowledge", Icon: MapPinned },
-  { label: "Global Perspective", Icon: Globe2 },
-] as const;
+const valueIcons = {
+  Responsiveness: Radio,
+  Rigour: Scale,
+  "Commercial Understanding": Compass,
+  "Local Knowledge": MapPinned,
+  "Global Perspective": Globe2,
+} as const satisfies Record<(typeof values)[number]["label"], LucideIcon>;
+
+export const valueVisuals = values.map((v) => ({
+  ...v,
+  Icon: valueIcons[v.label],
+}));
 
 export const navVisuals: Record<string, LucideIcon> = {
   "/": Leaf,
