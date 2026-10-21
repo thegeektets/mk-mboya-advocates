@@ -87,6 +87,25 @@ body {
   }
 }
 
+@keyframes icon-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .hero-media {
   animation: hero-drift 18s ease-out forwards;
 }
@@ -103,11 +122,25 @@ body {
   animation: rise 0.9s ease-out 0.36s both;
 }
 
+.icon-float {
+  animation: icon-float 5.6s ease-in-out infinite;
+}
+
+.spin-slow {
+  animation: spin-slow 72s linear infinite;
+}
+
+.icon-glow {
+  filter: drop-shadow(0 0 28px rgba(0, 226, 189, 0.55));
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-media,
   .rise-in,
   .rise-in-delay,
-  .rise-in-late {
+  .rise-in-late,
+  .icon-float,
+  .spin-slow {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;

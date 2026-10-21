@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Mail, MapPinned } from "lucide-react";
 import { BrandMark } from "./BrandMark";
 import { firm, nav } from "@/content/site";
 
@@ -12,7 +13,14 @@ export function SiteFooter() {
             {firm.name}. {firm.tagline} Corporate, investment and climate counsel
             in {firm.location} and across East Africa.
           </p>
-          <p className="mt-3 text-sm text-white/55">{firm.location}</p>
+          <p className="mt-3 flex items-center gap-2 text-sm text-white/55">
+            <MapPinned size={14} aria-hidden />
+            {firm.location}
+          </p>
+          <p className="mt-2 flex items-center gap-2 text-sm text-white/55">
+            <Mail size={14} aria-hidden />
+            {firm.email}
+          </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
           {nav

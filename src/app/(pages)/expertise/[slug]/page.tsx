@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CircleCheck } from "lucide-react";
+import { MkIcon } from "@/components/MkIcon";
 import { getPractice, practiceAreas } from "@/content/site";
+import { practiceVisual } from "@/lib/visuals";
 
 export function generateStaticParams() {
   return practiceAreas.map((p) => ({ slug: p.slug }));
@@ -27,6 +29,7 @@ export default async function PracticePage({
   const { slug } = await params;
   const area = getPractice(slug);
   if (!area) notFound();
+  const { Icon, short } = practiceVisual(area.slug);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
@@ -36,26 +39,30 @@ export default async function PracticePage({
       >
         ← Expertise
       </Link>
-      {area.signature ? (
-        <p className="mt-6 text-sm font-medium uppercase tracking-[0.2em] text-turquoise">
-          Signature practice
-        </p>
-      ) : (
-        <p className="mt-6 text-sm font-medium uppercase tracking-[0.2em] text-turquoise">
-          Practice
-        </p>
-      )}
-      <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
-        {area.title}
-      </h1>
-      <p className="mt-5 text-lg leading-relaxed text-stone">{area.intro}</p>
+      <div className="mt-8 flex items-start gap-5">
+        <MkIcon icon={Icon} size="lg" tone="aqua" />
+        <div>
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-turquoise">
+            {area.signature ? "Signature practice" : short}
+          </p>
+          <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+            {area.title}
+          </h1>
+        </div>
+      </div>
+      <p className="mt-6 text-lg leading-relaxed text-stone">{area.intro}</p>
       <ul className="mt-10 space-y-3">
         {area.bullets.map((b) => (
           <li
             key={b}
             className="flex gap-3 rounded-xl border border-[var(--line)] bg-white px-4 py-3 text-sm text-ink"
           >
-            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-turquoise" />
+            <CircleCheck
+              size={18}
+              strokeWidth={1.8}
+              className="mt-0.5 shrink-0 text-turquoise"
+              aria-hidden
+            />
             {b}
           </li>
         ))}

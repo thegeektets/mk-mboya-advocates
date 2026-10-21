@@ -1,6 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import {
+  Briefcase,
+  Building2,
+  Mail,
+  MessageSquare,
+  Send,
+  User,
+} from "lucide-react";
 import { practiceAreas, firm } from "@/content/site";
 
 export function ContactForm() {
@@ -32,7 +40,10 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} className="grid gap-4">
       <label className="grid gap-1.5 text-sm">
-        <span className="font-medium text-ink">Name</span>
+        <span className="inline-flex items-center gap-2 font-medium text-ink">
+          <User size={14} className="text-turquoise" aria-hidden />
+          Name
+        </span>
         <input
           required
           name="name"
@@ -41,7 +52,10 @@ export function ContactForm() {
         />
       </label>
       <label className="grid gap-1.5 text-sm">
-        <span className="font-medium text-ink">Email</span>
+        <span className="inline-flex items-center gap-2 font-medium text-ink">
+          <Mail size={14} className="text-turquoise" aria-hidden />
+          Email
+        </span>
         <input
           required
           type="email"
@@ -51,7 +65,10 @@ export function ContactForm() {
         />
       </label>
       <label className="grid gap-1.5 text-sm">
-        <span className="font-medium text-ink">Organisation</span>
+        <span className="inline-flex items-center gap-2 font-medium text-ink">
+          <Building2 size={14} className="text-turquoise" aria-hidden />
+          Organisation
+        </span>
         <input
           name="organisation"
           autoComplete="organization"
@@ -59,7 +76,10 @@ export function ContactForm() {
         />
       </label>
       <label className="grid gap-1.5 text-sm">
-        <span className="font-medium text-ink">Matter</span>
+        <span className="inline-flex items-center gap-2 font-medium text-ink">
+          <Briefcase size={14} className="text-turquoise" aria-hidden />
+          Matter
+        </span>
         <select
           name="matter"
           className="rounded-lg border border-[var(--line)] bg-white px-3 py-2.5 text-ink outline-none ring-turquoise/40 focus:ring-2"
@@ -77,7 +97,10 @@ export function ContactForm() {
         </select>
       </label>
       <label className="grid gap-1.5 text-sm">
-        <span className="font-medium text-ink">Message</span>
+        <span className="inline-flex items-center gap-2 font-medium text-ink">
+          <MessageSquare size={14} className="text-turquoise" aria-hidden />
+          Message
+        </span>
         <textarea
           required
           name="message"
@@ -88,8 +111,9 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="btn-primary inline-flex items-center justify-center px-5 py-3 text-sm disabled:opacity-60"
+        className="btn-primary inline-flex items-center justify-center gap-2 px-5 py-3 text-sm disabled:opacity-60"
       >
+        <Send size={16} aria-hidden />
         {status === "sending" ? "Sending…" : "Send message"}
       </button>
       {status === "sent" && (

@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { BrandMark } from "./BrandMark";
 import { nav } from "@/content/site";
+import { navVisuals } from "@/lib/visuals";
 
 export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const pathname = usePathname();
@@ -23,17 +24,18 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
         <BrandMark href="/" light={light} variant="refined" size="sm" />
 
-        <nav className="hidden items-center gap-1 lg:flex">
-          {nav.map((link) => {
+        <nav className="hidden items-center gap-0.5 lg:flex">
+          {nav.filter((link) => link.href !== "/").map((link) => {
             const active =
               link.href === "/"
                 ? pathname === "/"
                 : pathname.startsWith(link.href);
+            const Icon = navVisuals[link.href];
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition ${
+                className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-medium transition ${
                   light
                     ? active
                       ? "text-brass"
@@ -43,6 +45,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
                       : "text-stone hover:text-ink"
                 }`}
               >
+                {Icon ? <Icon size={15} strokeWidth={1.8} aria-hidden /> : null}
                 {link.label}
               </Link>
             );
@@ -68,16 +71,27 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
       {open && (
         <div className="border-t border-[var(--line)] bg-white px-4 py-3 lg:hidden">
           <div className="flex flex-col gap-1">
-            {nav.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {nav.map((link) => {
+              const Icon = navVisuals[link.href];
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-ink"
+                >
+                  {Icon ? (
+                    <Icon
+                      size={16}
+                      strokeWidth={1.8}
+                      className="text-turquoise"
+                      aria-hidden
+                    />
+                  ) : null}
+                  {link.label}
+                </Link>
+              );
+            })}
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
