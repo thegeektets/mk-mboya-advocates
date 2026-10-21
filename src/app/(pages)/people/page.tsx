@@ -22,7 +22,7 @@ export default function PeoplePage() {
         {founder.framing}
       </PageIntro>
 
-      <article className="mt-12 max-w-2xl rounded-2xl border border-[var(--line)] bg-white p-8">
+      <article className="mt-12 max-w-2xl rounded-2xl border border-[var(--line)] bg-white p-5 sm:p-8">
         <div className="flex items-start gap-5">
           <div className="relative flex h-20 w-20 shrink-0 items-center justify-center rounded-[1.4rem] bg-forest text-white">
             <span className="font-display text-2xl font-semibold tracking-tight">

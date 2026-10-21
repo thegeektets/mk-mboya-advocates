@@ -35,17 +35,17 @@ export default async function PracticePage({
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
       <Link
         href="/expertise"
-        className="text-sm font-medium text-stone hover:text-turquoise"
+        className="inline-flex min-h-11 items-center text-sm font-medium text-stone hover:text-turquoise"
       >
         ← Expertise
       </Link>
-      <div className="mt-8 flex items-start gap-5">
+      <div className="mt-6 flex items-start gap-4 sm:mt-8 sm:gap-5">
         <MkIcon icon={Icon} size="lg" tone="aqua" />
-        <div>
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-turquoise">
+        <div className="min-w-0">
+          <p className="text-xs font-medium uppercase tracking-[0.16em] text-turquoise sm:text-sm sm:tracking-[0.2em]">
             {area.signature ? "Signature practice" : short}
           </p>
-          <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+          <h1 className="mt-3 text-balance font-display text-3xl font-semibold text-ink sm:text-4xl lg:text-5xl">
             {area.title}
           </h1>
         </div>
@@ -69,7 +69,7 @@ export default async function PracticePage({
       </ul>
       <Link
         href="/contact"
-        className="btn-primary mt-10 inline-flex items-center gap-2 px-5 py-3 text-sm"
+        className="btn-primary mt-10 inline-flex min-h-11 items-center gap-2 px-5 py-3 text-sm"
       >
         Discuss this matter
         <ArrowRight size={16} />

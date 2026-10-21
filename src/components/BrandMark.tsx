@@ -4,16 +4,24 @@ import { FirmLockup } from "./FirmLockup";
 
 export type LogoVariant = "original" | "inverted" | "refined";
 
+const markWidth = {
+  sm: "w-[min(100%,13.25rem)] sm:w-[min(100%,18rem)]",
+  md: "w-[min(100%,16rem)] sm:w-[min(100%,20rem)]",
+  lg: "w-[min(100%,13.75rem)] sm:w-[min(100%,18rem)] lg:w-[min(100%,21rem)]",
+} as const;
+
 export function BrandMark({
   href = "/",
   light = false,
   variant = "refined",
   size = "md",
+  className = "",
 }: {
   href?: string;
   light?: boolean;
   variant?: LogoVariant;
   size?: "sm" | "md" | "lg";
+  className?: string;
 }) {
   const heights = { sm: 40, md: 48, lg: 168 };
 
@@ -21,13 +29,13 @@ export function BrandMark({
     return (
       <Link
         href={href}
-        className="group inline-flex max-w-full items-center leading-none"
+        className={`group inline-flex min-w-0 items-center leading-none ${markWidth[size]} ${className}`}
         aria-label="MK Mboya Advocates LLP home"
       >
         <FirmLockup
           tone={light ? "light" : "navy"}
           layout={size === "lg" ? "stacked" : "horizontal"}
-          height={heights[size]}
+          className="h-auto w-full"
         />
       </Link>
     );

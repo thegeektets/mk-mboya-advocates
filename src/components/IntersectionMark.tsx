@@ -3,7 +3,7 @@ import { MkIcon } from "./MkIcon";
 
 export function IntersectionMark() {
   return (
-    <figure className="relative isolate overflow-hidden rounded-[1.75rem] bg-forest aspect-[5/4] min-h-[280px] shadow-[0_24px_80px_rgba(25,52,60,0.18)]">
+    <figure className="relative isolate aspect-[5/4] w-full overflow-hidden rounded-[1.75rem] bg-forest shadow-[0_24px_80px_rgba(25,52,60,0.18)]">
       <svg
         className="absolute inset-0 h-full w-full"
         viewBox="0 0 520 416"

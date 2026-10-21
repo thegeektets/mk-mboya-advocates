@@ -23,7 +23,7 @@ export function PracticeCard({
         <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-turquoise">
           {area.signature ? "Signature" : short}
         </p>
-        <h3 className="mt-1 font-display text-xl font-semibold text-ink group-hover:text-canopy">
+        <h3 className="mt-1 font-display text-lg font-semibold text-ink group-hover:text-canopy sm:text-xl">
           {area.title}
         </h3>
         {compact ? (

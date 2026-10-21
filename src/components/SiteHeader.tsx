@@ -17,12 +17,22 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
     <header
       className={`z-40 ${
         overlay
-          ? "absolute inset-x-0 top-0"
+          ? `absolute inset-x-0 top-0 ${
+              open
+                ? "border-b border-[var(--line)] bg-white/95 backdrop-blur-md"
+                : "bg-gradient-to-b from-[#19343C]/70 to-transparent"
+            }`
           : "sticky top-0 border-b border-[var(--line)] bg-white/90 backdrop-blur-md"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-        <BrandMark href="/" light={light} variant="refined" size="sm" />
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:gap-4 sm:px-6 sm:py-4">
+        <BrandMark
+          href="/"
+          light={light}
+          variant="refined"
+          size="sm"
+          className="min-w-0 max-w-[calc(100%-3.25rem)]"
+        />
 
         <nav className="hidden items-center gap-0.5 lg:flex">
           {nav.filter((link) => link.href !== "/").map((link) => {
@@ -54,7 +64,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
 
         <button
           type="button"
-          className={`inline-flex items-center justify-center rounded-lg p-2 lg:hidden ${
+          className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg lg:hidden ${
             light ? "text-white" : "border border-[var(--line)] text-ink"
           }`}
           aria-expanded={open}
@@ -66,7 +76,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
       </div>
 
       {open && (
-        <div className="border-t border-[var(--line)] bg-white px-4 py-3 lg:hidden">
+        <div className="border-t border-[var(--line)] bg-white px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] lg:hidden">
           <div className="flex flex-col gap-1">
             {nav.map((link) => {
               const Icon = navVisuals[link.href];
@@ -75,7 +85,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-ink"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 py-3 text-sm font-medium text-ink"
                 >
                   {Icon ? (
                     <Icon
@@ -92,7 +102,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="btn-primary mt-1 px-3 py-2.5 text-center text-sm"
+              className="btn-primary mt-1 min-h-11 px-3 py-3 text-center text-sm"
             >
               Instruct us
             </Link>

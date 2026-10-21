@@ -55,7 +55,7 @@ export function FirmLockup({
         className={`max-w-full ${className}`}
         role="img"
         aria-label="MK Mboya Advocates LLP"
-        style={{ height, width: "auto" }}
+        style={height != null ? { height, width: "auto" } : undefined}
       >
         <g transform="translate(138,4) scale(1.08)">
           <MkLetters navy={navy} leaf={leaf} shine={shine} />
@@ -99,7 +99,7 @@ export function FirmLockup({
       className={`max-w-full ${className}`}
       role="img"
       aria-label="MK Mboya Advocates LLP"
-      style={{ height, width: "auto" }}
+      style={height != null ? { height, width: "auto" } : undefined}
     >
       <g transform="translate(0,6) scale(0.52)">
         <MkLetters navy={navy} leaf={leaf} shine={shine} />
