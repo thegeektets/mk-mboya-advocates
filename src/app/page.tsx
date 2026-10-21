@@ -12,7 +12,6 @@ import { HowWeWork } from "@/components/HowWeWork";
 import { IntersectionMark } from "@/components/IntersectionMark";
 import { PracticeCard } from "@/components/PracticeCard";
 import { MkIcon } from "@/components/MkIcon";
-import { BrandMark } from "@/components/BrandMark";
 import {
   firm,
   heroEyebrow,
@@ -45,10 +44,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(0,226,189,0.18),transparent_55%)]" />
         <HeroConstellation />
         <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-4 pb-8 pt-24 sm:justify-end sm:px-6 sm:pb-16 sm:pt-28 lg:pb-24">
-          <div className="rise-in hidden md:block">
-            <BrandMark light variant="refined" size="sm" />
-          </div>
-          <p className="rise-in-delay text-balance text-xs font-medium uppercase tracking-[0.14em] text-brass sm:mt-6 sm:text-sm sm:tracking-[0.28em] sm:text-base md:mt-4">
+          <p className="rise-in text-balance text-xs font-medium uppercase tracking-[0.14em] text-brass sm:text-sm sm:tracking-[0.28em] sm:text-base">
             {heroEyebrow}
           </p>
           <h1 className="rise-in-delay mt-3 max-w-2xl font-display text-3xl font-semibold text-white sm:mt-6 sm:text-5xl">
