@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { BrandMark } from "@/components/BrandMark";
-import { FirmLockup } from "@/components/FirmLockup";
 
 export const metadata: Metadata = {
   title: "Logo lab",
@@ -18,8 +17,8 @@ export default function LogoLabPage() {
         Logo treatments
       </h1>
       <p className="mt-4 max-w-2xl text-stone">
-        The client lockup is kept. The live header uses a redrawn vector with
-        every word visible: MK, MBOYA, ADVOCATES, LLP.
+        Live header, hero and footer use the client lockup — MK, MBOYA,
+        ADVOCATES and LLP — navy on paper, white and teal on slate.
       </p>
 
       <div className="mt-12 grid gap-8">
@@ -40,20 +39,16 @@ export default function LogoLabPage() {
 
         <section className="rounded-2xl border border-[var(--line)] bg-white p-8">
           <h2 className="font-display text-xl font-semibold">
-            Live lockup — navy / leaf
+            Live lockup — navy
           </h2>
-          <p className="mt-2 text-sm text-stone">
-            Same words, even weight on MBOYA and ADVOCATES, LLP rules matching
-            the line.
-          </p>
           <div className="mt-8">
-            <FirmLockup tone="navy" layout="stacked" height={220} />
+            <BrandMark variant="refined" size="lg" />
           </div>
           <div className="mt-8 border-t border-[var(--line)] pt-8">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-stone">
               Header size
             </p>
-            <BrandMark variant="refined" size="md" />
+            <BrandMark variant="refined" size="sm" />
           </div>
         </section>
 
@@ -61,14 +56,14 @@ export default function LogoLabPage() {
           <h2 className="font-display text-xl font-semibold">
             Live lockup — on slate
           </h2>
-          <p className="mt-2 text-sm text-white/60">
-            Off-white type, turquoise leaf and LLP rules.
-          </p>
           <div className="mt-8">
-            <FirmLockup tone="light" layout="stacked" height={220} />
+            <BrandMark variant="refined" light size="lg" />
           </div>
           <div className="mt-8 border-t border-white/10 pt-8">
-            <BrandMark variant="refined" light size="md" />
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/55">
+              Header size
+            </p>
+            <BrandMark variant="refined" light size="sm" />
           </div>
         </section>
       </div>

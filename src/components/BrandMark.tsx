@@ -1,13 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FirmLockup } from "./FirmLockup";
 
 export type LogoVariant = "original" | "inverted" | "refined";
 
-const markWidth = {
-  sm: "w-[min(100%,13.25rem)] sm:w-[min(100%,18rem)]",
-  md: "w-[min(100%,16rem)] sm:w-[min(100%,20rem)]",
-  lg: "w-[min(100%,13.75rem)] sm:w-[min(100%,18rem)] lg:w-[min(100%,21rem)]",
+const wrapClass = {
+  sm: "max-w-[min(100%,12.5rem)]",
+  md: "max-w-[min(100%,16rem)]",
+  lg: "w-full max-w-[min(100%,22rem)] sm:max-w-[26rem] lg:max-w-[30rem]",
+} as const;
+
+const imageClass = {
+  sm: "h-14 w-auto max-h-14 sm:h-16 sm:max-h-16",
+  md: "h-16 w-auto sm:h-[4.5rem]",
+  lg: "h-auto w-full max-h-[9.5rem] sm:max-h-[11rem] lg:max-h-[12.5rem]",
 } as const;
 
 export function BrandMark({
@@ -23,42 +28,25 @@ export function BrandMark({
   size?: "sm" | "md" | "lg";
   className?: string;
 }) {
-  const heights = { sm: 40, md: 48, lg: 168 };
-
-  if (variant === "refined") {
-    return (
-      <Link
-        href={href}
-        className={`group inline-flex min-w-0 items-center leading-none ${markWidth[size]} ${className}`}
-        aria-label="MK Mboya Advocates LLP home"
-      >
-        <FirmLockup
-          tone={light ? "light" : "navy"}
-          layout={size === "lg" ? "stacked" : "horizontal"}
-          className="h-auto w-full"
-        />
-      </Link>
-    );
-  }
-
   const src =
-    variant === "inverted" || light
-      ? "/logo/inverted.png"
-      : "/logo/original.png";
+    variant === "original"
+      ? "/logo/original.png"
+      : light || variant === "inverted"
+        ? "/logo/lockup-light.png"
+        : "/logo/lockup-navy.png";
 
   return (
     <Link
       href={href}
-      className="group inline-flex items-center leading-none"
+      className={`group inline-flex min-w-0 items-center leading-none ${wrapClass[size]} ${className}`}
       aria-label="MK Mboya Advocates LLP home"
     >
       <Image
         src={src}
         alt="MK Mboya Advocates LLP"
-        width={1024}
-        height={512}
-        className="w-auto object-contain object-left transition group-hover:opacity-90"
-        style={{ height: heights[size], width: "auto" }}
+        width={880}
+        height={349}
+        className={`${imageClass[size]} object-contain object-left transition group-hover:opacity-90`}
         priority
       />
     </Link>

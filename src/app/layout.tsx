@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: landing.lead,
     locale: "en_KE",
     type: "website",
-    images: [{ url: "/logo/inverted.png", width: 1024, height: 512 }],
+    images: [{ url: "/logo/og.png", width: 1200, height: 630 }],
   },
 };
 
