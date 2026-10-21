@@ -11,7 +11,8 @@ Living snapshot. Update after each deploy.
 | Dashboard | https://vercel.com/griffin-mutetis-projects/mk-mboya-advocates |
 | Production URL | https://mk-mboya-advocates.vercel.app |
 | Git production alias | https://mk-mboya-advocates-git-main-griffin-mutetis-projects.vercel.app |
-| Last deploy | production `dpl_34JfmUD2Z32Mw6jVLm9VUAKrbRDM` (READY, Tailwind fix) |
+| Last successful deploy | production `dpl_99Ax2Rs52gtqekt2tSQF1Cqpb13G` (READY) |
+| Last attempted deploy | `dpl_Hjy46UDhSyzUWsx56DUof7dKgdac` (ERROR — SiteHeader TS; fix in progress) |
 | Live logo | Refined lockup (variant C) on dark slate; leaf recolored to `#00E2BD` |
 
 ## Blockers

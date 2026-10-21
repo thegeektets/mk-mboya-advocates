@@ -26,10 +26,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
 
         <nav className="hidden items-center gap-0.5 lg:flex">
           {nav.filter((link) => link.href !== "/").map((link) => {
-            const active =
-              link.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(link.href);
+            const active = pathname.startsWith(link.href);
             const Icon = navVisuals[link.href];
             return (
               <Link
