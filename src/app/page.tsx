@@ -45,7 +45,7 @@ export default function HomePage() {
         <HeroConstellation />
         <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-4 pb-16 pt-28 sm:px-6 lg:pb-24">
           <div className="rise-in">
-            <BrandMark light variant="inverted" size="lg" />
+            <BrandMark light variant="refined" size="lg" />
           </div>
           <p className="rise-in-delay mt-6 text-sm font-medium uppercase tracking-[0.28em] text-brass sm:text-base">
             {heroEyebrow}

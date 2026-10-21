@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { BrandMark } from "@/components/BrandMark";
+import { FirmLockup } from "@/components/FirmLockup";
 
 export const metadata: Metadata = {
   title: "Logo lab",
@@ -14,83 +15,61 @@ export default function LogoLabPage() {
         Internal
       </p>
       <h1 className="mt-3 font-display text-4xl font-semibold text-ink">
-        Logo &amp; colour treatments
+        Logo treatments
       </h1>
       <p className="mt-4 max-w-2xl text-stone">
-        Three header treatments. Live site uses <strong>C — refined</strong> on
-        dark slate. Original navy/green lockup is kept as the source of truth.
+        The client lockup is kept. The live header uses a redrawn vector with
+        every word visible: MK, MBOYA, ADVOCATES, LLP.
       </p>
 
       <div className="mt-12 grid gap-8">
         <section className="rounded-2xl border border-[var(--line)] bg-white p-8">
           <h2 className="font-display text-xl font-semibold">
-            A — Original navy / leaf green
+            Client original
           </h2>
           <div className="mt-6">
-            <BrandMark variant="original" size="lg" />
+            <Image
+              src="/logo/original.png"
+              alt="Original MK Mboya Advocates LLP lockup"
+              width={900}
+              height={420}
+              className="mx-auto h-40 w-auto max-w-full object-contain sm:h-52"
+            />
+          </div>
+        </section>
+
+        <section className="rounded-2xl border border-[var(--line)] bg-white p-8">
+          <h2 className="font-display text-xl font-semibold">
+            Live lockup — navy / leaf
+          </h2>
+          <p className="mt-2 text-sm text-stone">
+            Same words, even weight on MBOYA and ADVOCATES, LLP rules matching
+            the line.
+          </p>
+          <div className="mt-8">
+            <FirmLockup tone="navy" layout="stacked" height={220} />
+          </div>
+          <div className="mt-8 border-t border-[var(--line)] pt-8">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-stone">
+              Header size
+            </p>
+            <BrandMark variant="refined" size="md" />
           </div>
         </section>
 
         <section className="rounded-2xl bg-forest p-8 text-white">
           <h2 className="font-display text-xl font-semibold">
-            B — Inverted on slate (MyCFO atmosphere)
+            Live lockup — on slate
           </h2>
           <p className="mt-2 text-sm text-white/60">
-            Leaf shifted from #6FBE4A to turquoise #00E2BD.
+            Off-white type, turquoise leaf and LLP rules.
           </p>
-          <div className="mt-6">
-            <BrandMark variant="inverted" light size="lg" />
+          <div className="mt-8">
+            <FirmLockup tone="light" layout="stacked" height={220} />
           </div>
-        </section>
-
-        <section className="rounded-2xl bg-forest p-8 text-white">
-          <h2 className="font-display text-xl font-semibold">
-            C — Refined lockup (live header)
-          </h2>
-          <p className="mt-2 text-sm text-white/60">
-            MK + leaf mark, tighter MBOYA tracking, wider ADVOCATES, teal LLP
-            rules.
-          </p>
-          <div className="mt-6">
-            <BrandMark variant="refined" light size="lg" />
+          <div className="mt-8 border-t border-white/10 pt-8">
+            <BrandMark variant="refined" light size="md" />
           </div>
-        </section>
-
-        <section className="grid gap-6 sm:grid-cols-3">
-          <figure className="rounded-2xl border border-[var(--line)] bg-white p-6">
-            <Image
-              src="/logo/favicon.svg"
-              alt="SVG MK favicon"
-              width={64}
-              height={64}
-            />
-            <figcaption className="mt-3 text-sm text-stone">
-              SVG monogram favicon
-            </figcaption>
-          </figure>
-          <figure className="rounded-2xl border border-[var(--line)] bg-white p-6">
-            <Image
-              src="/logo/monogram-bubbles.svg"
-              alt="Bubble-inspired MK monogram"
-              width={64}
-              height={64}
-            />
-            <figcaption className="mt-3 text-sm text-stone">
-              Bubble-inspired monogram (experiment)
-            </figcaption>
-          </figure>
-          <figure className="rounded-2xl border border-[var(--line)] bg-white p-6">
-            <Image
-              src="/logo/ref-mycfo-bubbles.png"
-              alt="MyCFO connected-bubble reference"
-              width={64}
-              height={64}
-              className="rounded-lg"
-            />
-            <figcaption className="mt-3 text-sm text-stone">
-              MyCFO bubble reference (not used as the live mark)
-            </figcaption>
-          </figure>
         </section>
       </div>
     </div>

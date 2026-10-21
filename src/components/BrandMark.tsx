@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FirmLockup } from "./FirmLockup";
 
 export type LogoVariant = "original" | "inverted" | "refined";
 
@@ -14,48 +15,20 @@ export function BrandMark({
   variant?: LogoVariant;
   size?: "sm" | "md" | "lg";
 }) {
-  const heights = { sm: 36, md: 44, lg: 72 };
-  const h = heights[size];
+  const heights = { sm: 40, md: 48, lg: 168 };
 
   if (variant === "refined") {
     return (
       <Link
         href={href}
-        className="group inline-flex items-center gap-3 leading-none"
+        className="group inline-flex max-w-full items-center leading-none"
         aria-label="MK Mboya Advocates LLP home"
       >
-        <Image
-          src={light ? "/logo/mark-inverted.png" : "/logo/mark-original.png"}
-          alt=""
-          width={428}
-          height={170}
-          className="w-auto object-contain object-left"
-          style={{ height: h, width: "auto" }}
-          priority
+        <FirmLockup
+          tone={light ? "light" : "navy"}
+          layout={size === "lg" ? "stacked" : "horizontal"}
+          height={heights[size]}
         />
-        <span className="hidden min-[420px]:flex flex-col justify-center">
-          <span
-            className={`text-[11px] font-semibold tracking-[0.14em] sm:text-xs ${
-              light ? "text-white" : "text-navy"
-            }`}
-          >
-            MBOYA
-            <span
-              className={`ml-1.5 font-medium tracking-[0.22em] ${
-                light ? "text-white/80" : "text-canopy"
-              }`}
-            >
-              ADVOCATES
-            </span>
-          </span>
-          <span
-            className={`llpline mt-1 text-[9px] font-medium tracking-[0.32em] ${
-              light ? "text-turquoise" : "text-stone"
-            }`}
-          >
-            LLP
-          </span>
-        </span>
       </Link>
     );
   }
@@ -63,7 +36,7 @@ export function BrandMark({
   const src =
     variant === "inverted" || light
       ? "/logo/inverted.png"
-      : "/logo/original-transparent.png";
+      : "/logo/original.png";
 
   return (
     <Link
@@ -77,7 +50,7 @@ export function BrandMark({
         width={1024}
         height={512}
         className="w-auto object-contain object-left transition group-hover:opacity-90"
-        style={{ height: h + 8, width: "auto" }}
+        style={{ height: heights[size], width: "auto" }}
         priority
       />
     </Link>
