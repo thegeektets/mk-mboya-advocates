@@ -88,11 +88,15 @@ export const credentialVisuals: { label: string; Icon: LucideIcon }[] = [
   { label: "Legal 500 recognition", Icon: Award },
 ];
 
-export const orbitIcons = [
-  practiceVisuals["corporate-ma-investment"].Icon,
-  practiceVisuals["due-diligence-local-counsel"].Icon,
-  practiceVisuals["land-rights"].Icon,
-  practiceVisuals["startup-investor"].Icon,
-  practiceVisuals["climate-energy"].Icon,
-  practiceVisuals["company-secretarial"].Icon,
-] as const;
+export const orbitPractices = (
+  [
+    "corporate-ma-investment",
+    "due-diligence-local-counsel",
+    "land-rights",
+    "startup-investor",
+    "climate-energy",
+    "company-secretarial",
+  ] as const satisfies readonly PracticeSlug[]
+).map((slug) => ({ slug, ...practiceVisuals[slug] }));
+
+export const orbitIcons = orbitPractices.map((practice) => practice.Icon);

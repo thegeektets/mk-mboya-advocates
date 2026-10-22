@@ -164,6 +164,61 @@ body {
   animation: orbit-counter 42s linear infinite;
 }
 
+.hero-orbit:has(.orbit-link:hover) .orbit-spin,
+.hero-orbit:has(.orbit-link:hover) .orbit-counter,
+.hero-orbit:has(.orbit-link:focus-visible) .orbit-spin,
+.hero-orbit:has(.orbit-link:focus-visible) .orbit-counter {
+  animation-play-state: paused;
+}
+
+.orbit-link {
+  cursor: pointer;
+}
+
+.orbit-link .orbit-mark {
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.orbit-link:hover .orbit-mark,
+.orbit-link:focus-visible .orbit-mark {
+  transform: scale(1.12);
+  background: var(--turquoise);
+  color: var(--black);
+  box-shadow: 0 0 28px rgba(0, 226, 189, 0.55);
+}
+
+.orbit-caption {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.4rem);
+  z-index: 2;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(25, 52, 60, 0.94);
+  color: var(--brass);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-50%) translateY(6px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  pointer-events: none;
+}
+
+.orbit-link:hover .orbit-caption,
+.orbit-link:focus-visible .orbit-caption {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .icon-pulse {
   animation: icon-pulse 5.2s ease-in-out infinite;
 }
@@ -288,15 +343,61 @@ body {
 
   .btn-primary:hover,
   .btn-ghost:hover,
-  a:hover .btn-primary {
+  a:hover .btn-primary,
+  .hero-chip:hover,
+  .hero-chip:focus-visible,
+  .orbit-link:hover .orbit-mark,
+  .orbit-link:focus-visible .orbit-mark {
     transform: none !important;
     box-shadow: none !important;
+  }
+
+  .orbit-caption {
+    transform: translateX(-50%) !important;
   }
 
   .btn-primary::after,
   .btn-ghost::after {
     display: none !important;
   }
+}
+
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition:
+    background 0.22s ease,
+    color 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.hero-chip svg {
+  transition: transform 0.22s ease;
+}
+
+.hero-chip:hover,
+.hero-chip:focus-visible {
+  background: var(--turquoise);
+  border-color: var(--turquoise);
+  color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 226, 189, 0.28);
+}
+
+.hero-chip:hover svg:last-of-type,
+.hero-chip:focus-visible svg:last-of-type {
+  transform: translateX(3px);
 }
 
 .btn-primary,

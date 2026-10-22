@@ -43,7 +43,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#19343C]/94 via-[#19343C]/72 to-[#19343C]/30" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(0,226,189,0.18),transparent_55%)]" />
         <HeroConstellation />
-        <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-start px-4 pb-10 pt-24 sm:px-6 md:justify-center md:pb-16 md:pt-28">
+        <div className="pointer-events-none relative z-20 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-start px-4 pb-10 pt-24 sm:px-6 md:justify-center md:pb-16 md:pt-28">
           <p className="rise-in text-balance text-xs font-medium uppercase tracking-[0.14em] text-brass sm:text-sm sm:tracking-[0.28em] sm:text-base">
             {heroEyebrow}
           </p>
@@ -53,23 +53,25 @@ export default function HomePage() {
           <p className="rise-in-late mt-3 max-w-xl text-sm leading-relaxed text-white/80 sm:mt-4 sm:text-lg">
             {landing.lead}
           </p>
-          <ul className="rise-in-late mt-5 flex flex-wrap gap-2 sm:mt-7">
+          <ul className="pointer-events-auto rise-in-late mt-5 flex w-fit max-w-full flex-wrap gap-2 sm:mt-7">
             {practiceAreas.map((area) => {
               const { Icon, short } = practiceVisual(area.slug);
               return (
                 <li key={area.slug}>
                   <Link
                     href={`/expertise/${area.slug}`}
-                    className="inline-flex min-h-9 items-center gap-2 rounded-full border border-white/20 bg-white/8 px-3 py-2 text-xs font-medium text-white/90 hover:border-turquoise hover:text-brass"
+                    aria-label={area.title}
+                    className="hero-chip focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-turquoise"
                   >
                     <Icon size={14} strokeWidth={1.8} aria-hidden />
                     {short}
+                    <ArrowRight size={12} aria-hidden />
                   </Link>
                 </li>
               );
             })}
           </ul>
-          <div className="rise-in-late mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
+          <div className="pointer-events-auto rise-in-late mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:w-fit sm:flex-row sm:flex-wrap">
             <Link href="/expertise" className="btn-primary w-full sm:w-auto">
               View expertise
               <ArrowRight size={16} />

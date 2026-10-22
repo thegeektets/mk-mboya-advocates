@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, CircleCheck } from "lucide-react";
+import { BackLink } from "@/components/BackLink";
 import { MkIcon } from "@/components/MkIcon";
 import { getPractice, practiceAreas } from "@/content/site";
 import { practiceVisual } from "@/lib/visuals";
@@ -33,12 +34,7 @@ export default async function PracticePage({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-      <Link
-        href="/expertise"
-        className="inline-flex min-h-11 items-center text-sm font-medium text-stone hover:text-turquoise"
-      >
-        ← Expertise
-      </Link>
+      <BackLink fallback="/expertise">← Back</BackLink>
       <div className="mt-6 flex items-start gap-4 sm:mt-8 sm:gap-5">
         <MkIcon icon={Icon} size="lg" tone="aqua" />
         <div className="min-w-0">
